@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7B644A6A-C37D-4A4C-AED3-548A7EC7169A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PadCaptcha.Blazor", "src\PadCaptcha.Blazor\PadCaptcha.Blazor.csproj", "{91203FB8-151A-4D27-9146-6F35816F9159}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91203FB8-151A-4D27-9146-6F35816F9159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91203FB8-151A-4D27-9146-6F35816F9159}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91203FB8-151A-4D27-9146-6F35816F9159}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91203FB8-151A-4D27-9146-6F35816F9159}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{91203FB8-151A-4D27-9146-6F35816F9159} = {7B644A6A-C37D-4A4C-AED3-548A7EC7169A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB4F502A-D30D-47C6-8C9C-51B1FC081C65}
+	EndGlobalSection
+EndGlobal
