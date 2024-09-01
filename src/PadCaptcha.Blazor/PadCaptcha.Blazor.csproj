@@ -18,6 +18,19 @@
 	<RepositoryUrl>https://github.com/rmalekmohamadi/PadCaptcha.Blazor</RepositoryUrl>
 	<RepositoryType>git</RepositoryType>
   </PropertyGroup>
+
+  <PropertyGroup>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE" Pack="true" Visible="false" PackagePath="" />
+    <None Include="..\..\README.md" Pack="true" Visible="false" PackagePath="" />
+    <None Include="..\..\content\Nuget.png" Pack="true" Visible="false" PackagePath="" />
+  </ItemGroup>
 	
   <ItemGroup>
     <SupportedPlatform Include="browser" />

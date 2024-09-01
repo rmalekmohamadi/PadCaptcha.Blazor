@@ -19,6 +19,7 @@ dotnet add package PadCaptcha.Blazor
 ```
 ## Features
 
+- Work On Linux
 - Refresh On Failed
 - Customize Size
 - Customize Color
