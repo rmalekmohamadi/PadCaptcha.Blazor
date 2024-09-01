@@ -1,4 +1,4 @@
-name: deploy-paddatepicker-nuget
+name: deploy-padcaptcha-blazor-nuget
 
 on:
   workflow_dispatch:
@@ -38,7 +38,7 @@ jobs:
       run: echo "VERSION=${{ env.VERSION }}" >> $GITHUB_OUTPUT
 
   deploy-nuget:
-    name: Deploy paddatepicker nuget to nuget.org
+    name: Deploy padcaptcha-blazor nuget to nuget.org
     needs: get-version
     runs-on: ubuntu-latest
     env:
