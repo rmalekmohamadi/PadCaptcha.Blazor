@@ -27,15 +27,13 @@ dotnet add package PadCaptcha.Blazor
 
 ## Usage
 ```
-@using PadCaptcha.Blazor
-
-<PadCaptcha @ref="_captcha" />
+<PadCaptcha.Blazor.PadCaptcha @ref="_captcha" />
 <input @bind-value="_captchaValue" />
 <button @onclick="ValidateCaptcha">Validate</button>
 
 @code
 {
-  private PadCaptcha _captcha;
+  private PadCaptcha.Blazor.PadCaptcha _captcha;
   private string _captchaValue;
   private bool _captchaValidateResult;
 
