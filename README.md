@@ -24,6 +24,7 @@ dotnet add package PadCaptcha.Blazor
 - Customize Size
 - Customize Color
 - Customize Noise
+- Customize Style
 
 ## Usage
 ```
