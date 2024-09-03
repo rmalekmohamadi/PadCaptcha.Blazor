@@ -21,7 +21,6 @@ namespace PadCaptcha.Blazor
         [Parameter] public string BackgroundColor { get; set; }
         [Parameter] public bool Lines { get; set; } = true;
         [Parameter] public bool Dots { get; set; } = true;
-        [Parameter] public string[] Fonts { get; set; }
 
         //[Parameter] public EventCallback<string> CaptchaWordChanged { get; set; }
         [Parameter] public RenderFragment RefreshBtnTemplate { get; set; }
@@ -50,7 +49,7 @@ namespace PadCaptcha.Blazor
 
             var bgColor = GetColor(BackgroundColor, (byte)randomValue.Next(70, 100), (byte)randomValue.Next(60, 80), (byte)randomValue.Next(50, 90));
 
-            var fontFamilies = new string[] { "Courier", "Arial", "Verdana", "Times New Roman" };
+            var fontFamilies = new string[] { "ARIAL.TTF", "COUR.TTF", "TIMES.TTF", "VERDANA.TTF" };
 
             var letters = new List<Letter>();
 
@@ -76,17 +75,18 @@ namespace PadCaptcha.Blazor
                     var canvas = surface.Canvas;
                     canvas.Clear(bgColor);
 
-                    var typeface = Fonts.Length > 0 ? SKTypeface.FromFile(Fonts[randomValue.Next(0, Fonts.Length)]) :
-                                                      SKTypeface.FromFamilyName(fontFamilies[randomValue.Next(0, fontFamilies.Length)]);
-
                     using (SKPaint paint = new())
                     {
                         float x = 10;
 
                         foreach (Letter l in letters)
                         {
+                            using (var typeface = SKTypeface.FromStream(FontHelper.LoadStreamFont(l.FontFamily)))
+                            {
+                                paint.Typeface = typeface;
+                            }
+
                             paint.Color = l.Color;
-                            paint.Typeface = typeface;
                             paint.TextAlign = SKTextAlign.Left;
                             paint.TextSize = randomValue.Next(Height / 2, (Height / 2) + (Height / 4));
                             paint.FakeBoldText = true;

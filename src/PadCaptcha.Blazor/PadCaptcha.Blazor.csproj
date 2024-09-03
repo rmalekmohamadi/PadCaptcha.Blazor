@@ -27,6 +27,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\ARIAL.TTF" />
+    <Content Remove="wwwroot\COUR.TTF" />
+    <Content Remove="wwwroot\TIMES.TTF" />
+    <Content Remove="wwwroot\VERDANA.TTF" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="wwwroot\ARIAL.TTF" />
+    <EmbeddedResource Include="wwwroot\COUR.TTF" />
+    <EmbeddedResource Include="wwwroot\TIMES.TTF" />
+    <EmbeddedResource Include="wwwroot\VERDANA.TTF" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="..\..\LICENSE" Pack="true" Visible="false" PackagePath="" />
     <None Include="..\..\README.md" Pack="true" Visible="false" PackagePath="" />
     <None Include="..\..\content\Nuget.png" Pack="true" Visible="false" PackagePath="" />
@@ -51,10 +65,6 @@
 	<ItemGroup>
 		<PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="2.88.8" />
 		<PackageReference Include="SkiaSharp" Version="2.88.8" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<Folder Include="wwwroot\" />
 	</ItemGroup>
 
 </Project>
