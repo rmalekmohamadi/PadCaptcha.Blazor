@@ -21,6 +21,13 @@ namespace PadCaptcha.Blazor
         [Parameter] public string BackgroundColor { get; set; }
         [Parameter] public bool Lines { get; set; } = true;
         [Parameter] public bool Dots { get; set; } = true;
+        [Parameter] public string CaptchaWrapperClasses { get; set; }
+        [Parameter] public string RefreshBtnClasses { get; set; }
+        [Parameter] public string CaptchaClasses { get; set; }
+        [Parameter] public string CaptchaWrapperStyle { get; set; } = "display:flex";
+        [Parameter] public string RefreshBtnStyle { get; set; } = "width:40px;height:40px;";
+        [Parameter] public string CaptchaStyle { get; set; }
+
 
         //[Parameter] public EventCallback<string> CaptchaWordChanged { get; set; }
         [Parameter] public RenderFragment RefreshBtnTemplate { get; set; }
@@ -150,16 +157,18 @@ namespace PadCaptcha.Blazor
         {
             var seq = 0;
             builder.OpenElement(++seq, "div");
-            builder.AddAttribute(++seq, "style", "display:flex");
-            builder.AddAttribute(++seq, "class", "captach-wrapper");
+            builder.AddAttribute(++seq, "style", CaptchaWrapperStyle);
+            builder.AddAttribute(++seq, "class", "captcha-wrapper " + CaptchaWrapperClasses); 
             {
                 builder.OpenElement(++seq, "img");
                 builder.AddAttribute(++seq, "src", _img);
+                builder.AddAttribute(++seq, "class", CaptchaClasses);
+                builder.AddAttribute(++seq, "style", CaptchaStyle);
                 builder.CloseElement();
                 builder.OpenElement(++seq, "button");
                 {
-                    builder.AddAttribute(++seq, "class", "captach-refresh-btn");
-                    builder.AddAttribute(++seq, "style", "width:40px;height:40px;");
+                    builder.AddAttribute(++seq, "class", "captcha-refresh-btn " + RefreshBtnClasses);
+                    builder.AddAttribute(++seq, "style", RefreshBtnStyle);
                     builder.AddAttribute(++seq, "type", "button");
                     builder.AddAttribute(++seq, "onclick", EventCallback.Factory.Create<MouseEventArgs>(this, () => Refresh()));
                     builder.OpenElement(++seq, "svg");
