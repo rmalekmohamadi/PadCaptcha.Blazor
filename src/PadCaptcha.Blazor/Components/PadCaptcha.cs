@@ -205,9 +205,9 @@ namespace PadCaptcha.Blazor
         {
             var color = new SKColor(red, green, blue);
 
-            if (!string.IsNullOrEmpty(BackgroundColor))
+            if (!string.IsNullOrEmpty(hexColor))
             {
-                var result = SKColor.TryParse(BackgroundColor, out SKColor colorTmp);
+                var result = SKColor.TryParse(hexColor, out SKColor colorTmp);
                 if (result)
                 {
                     color = colorTmp;
