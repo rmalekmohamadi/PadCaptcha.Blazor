@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Components;
 using SkiaSharp;
 using Microsoft.AspNetCore.Components.Rendering;
+using System.Reflection;
+using System.Drawing.Text;
 
 namespace PadCaptcha.Blazor
 {
@@ -19,6 +21,7 @@ namespace PadCaptcha.Blazor
         [Parameter] public string BackgroundColor { get; set; }
         [Parameter] public bool Lines { get; set; } = true;
         [Parameter] public bool Dots { get; set; } = true;
+        [Parameter] public string[] Fonts { get; set; }
 
         //[Parameter] public EventCallback<string> CaptchaWordChanged { get; set; }
         [Parameter] public RenderFragment RefreshBtnTemplate { get; set; }
@@ -73,6 +76,9 @@ namespace PadCaptcha.Blazor
                     var canvas = surface.Canvas;
                     canvas.Clear(bgColor);
 
+                    var typeface = Fonts.Length > 0 ? SKTypeface.FromFile(Fonts[randomValue.Next(0, Fonts.Length)]) :
+                                                      SKTypeface.FromFamilyName(fontFamilies[randomValue.Next(0, fontFamilies.Length)]);
+
                     using (SKPaint paint = new())
                     {
                         float x = 10;
@@ -80,7 +86,7 @@ namespace PadCaptcha.Blazor
                         foreach (Letter l in letters)
                         {
                             paint.Color = l.Color;
-                            paint.Typeface = SKTypeface.FromFamilyName(l.FontFamily);
+                            paint.Typeface = typeface;
                             paint.TextAlign = SKTextAlign.Left;
                             paint.TextSize = randomValue.Next(Height / 2, (Height / 2) + (Height / 4));
                             paint.FakeBoldText = true;
@@ -101,7 +107,7 @@ namespace PadCaptcha.Blazor
 
                             x += textWidth + 10;
 
-                            if(Dots)
+                            if (Dots)
                             {
                                 for (int i = 0; i <= 4; i++)
                                 {
@@ -111,7 +117,7 @@ namespace PadCaptcha.Blazor
                             }
                         }
 
-                        if(Lines)
+                        if (Lines)
                         {
                             canvas.DrawLine(0, randomValue.Next(0, Height), Width, randomValue.Next(0, Height), paint);
                             canvas.DrawLine(0, randomValue.Next(0, Height), Width, randomValue.Next(0, Height), paint);
@@ -210,5 +216,6 @@ namespace PadCaptcha.Blazor
 
             return color;
         }
+
     }
 }
